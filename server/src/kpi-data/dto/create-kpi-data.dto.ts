@@ -1,4 +1,4 @@
-import { kpiDataInterface } from "src/interfaces/kpi-data";
+import { kpiDataInterface } from "src/interfaces/kpi";
 
 export type CreateKpiDatumDto =  kpiDataInterface[];
     

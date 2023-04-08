@@ -1,7 +1,8 @@
 import { User } from "src/user/user.entity";
 import { Kpi } from "src/kpi/entities/kpi.entity"
 import { BaseEntity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, SaveOptions, Index, Entity } from "typeorm";
-import { kpiDataInterface } from "src/interfaces/kpi-data";
+import { kpiDataInterface, KpiVersion } from "src/interfaces/kpi";
+
 
 @Entity()
 export class KpiData  extends BaseEntity implements kpiDataInterface {
@@ -15,24 +16,24 @@ export class KpiData  extends BaseEntity implements kpiDataInterface {
     date: Date;
 
     @Column()
-    kpiDrillDownLevel1 : string
+    kpiDrillDownLevel1 : string;
 
     @Column()
-    kpiDrillDownLevel2 : string
+    kpiDrillDownLevel2 : string;
 
     @Column()
-    version : string
+    version : KpiVersion;
 
     @Column()
-    nominator : Number
+    nominator : Number;
 
     @Column()
-    denominator : Number
+    denominator : Number;
 
     @Column({
         type : "datetime"
     })
-    uploadedAt : Date
+    uploadedAt : Date;
 
 /*     @ManyToOne(type => User, entity => entity.id)
     @JoinColumn()
@@ -41,12 +42,12 @@ export class KpiData  extends BaseEntity implements kpiDataInterface {
     @Column({
         nullable : true
     })
-    softDeleted : Boolean
+    softDeleted : Boolean;
 
 
     @ManyToOne(type => Kpi, entity => entity.id)
     @JoinColumn()
-    kpi: Kpi
+    kpi: Kpi;
 
 
 }
