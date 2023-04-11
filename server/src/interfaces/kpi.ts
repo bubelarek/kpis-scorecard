@@ -1,5 +1,5 @@
 import { Kpi } from "src/kpi/entities/kpi.entity";
-
+import { IsString, IsInt, IsDate } from 'class-validator';
 
 export enum KpiVersion {
   ACTUAL = 1,
@@ -14,19 +14,24 @@ export enum KpiCalculationLogic{
 }
 
 
-export interface kpiDataInterface {
+export class kpiDataInterface {
     
+    @IsDate()
     date: Date;
 
-    kpiDrillDownLevel1 : string
+    @IsString()
+    kpiDrillDownLevel1 : string;
 
-    kpiDrillDownLevel2 : string
+    @IsString()
+    kpiDrillDownLevel2 : string;
 
-    version : KpiVersion
+    @IsInt()
+    version : KpiVersion;
 
-    nominator : Number
+    @IsInt()
+    nominator : Number;
 
-    denominator : Number
-
+    @IsInt()
+    denominator : Number;
 
   }
