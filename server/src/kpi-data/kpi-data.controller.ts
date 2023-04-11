@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
 import { KpiDataService } from './kpi-data.service';
 import { CreateKpiDatumDto } from './dto/create-kpi-data.dto';
+import { ValidationPipe } from 'src/pipes/validation.pipe';
 
 @Controller('kpi-data')
 export class KpiDataController {
@@ -8,7 +9,7 @@ export class KpiDataController {
   
   @Post('/:kpi')
   createOrUpdate(
-    @Body() createKpiDatumDto: CreateKpiDatumDto,
+    @Body(new ValidationPipe()) createKpiDatumDto: CreateKpiDatumDto,
     @Param('kpi') kpi : string
   ) {
     return this.kpiDataService.createOrUpdate(kpi,createKpiDatumDto);
