@@ -1,10 +1,12 @@
-import {Body, Controller, Delete, Get, Inject,Param,Post, Put} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Inject,Param,Post, Put, UseGuards} from '@nestjs/common';
 import {KpiService} from './kpi.service';
 import {AddKpiDto} from './dto/add-kpi.dto';
 import { Kpi } from './entities/kpi.entity';
 import { UpdateKpiDto } from './dto/edit-kpi.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('kpi')
+@UseGuards(AuthGuard('jwt'))
 export class KpiController {
 
     constructor(
