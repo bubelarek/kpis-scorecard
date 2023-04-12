@@ -20,13 +20,13 @@ export class KpiService {
     
     async findAll() : Promise<Kpi[]> {
         return (await Kpi.find( {
-            relations: ['owner','team','report']})
+            relations: ['owner','team',]})
         );
     }
 
     async findOne(id: string) : Promise<Kpi> {
         return await Kpi.findOne(id, {
-        relations: ['owner','team','report']});
+        relations: ['owner','team']});
     }
 
 

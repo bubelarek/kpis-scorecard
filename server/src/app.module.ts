@@ -7,6 +7,7 @@ import {KpiModule} from "./kpi/kpi.module";
 import {ConsoleModule} from "nestjs-console";
 import { TeamModule } from './team/team.module';
 import { KpiDataModule } from './kpi-data/kpi-data.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
     imports: [
@@ -16,6 +17,7 @@ import { KpiDataModule } from './kpi-data/kpi-data.module';
         ConsoleModule,
         TeamModule,
         KpiDataModule,
+        AuthModule
     ],
     controllers: [AppController],
     providers: [AppService],
